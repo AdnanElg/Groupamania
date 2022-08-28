@@ -10,17 +10,17 @@ module.exports = (req, res, next) => {
    try {
       const token = req.headers.authorization.split(' ')[1];
       const decodedToken = jsonwebtoken.verify(token, `${process.env.JWT_KEY_TOKEN}`);
-      const userIdToken = decodedToken.userId;
-      
-      
-      if (req.body.userId && req.body.userId !== userIdToken) {
+      const userId = decodedToken.userId;
+      const admin = decodedToken.admin;
+
+
+      if (req.body.userId && req.body.userId !== userId && !admin) {
          throw "erreur identification userId"
       }
       
       
       else{
          next();
-         
       }
       
    } 

@@ -59,23 +59,22 @@ exports.login = (req, res, next) => {
         bcrypt.compare(req.body.password, user.password)  
             .then(valid => {
                 if(!valid){
-                  return res.status(401).json({ error: "mot de passe incorrect" });
+                  return res.status(401).json({ error: "Paire identifiant/mot de passe incorrrect" });
                 }
                
                 else{
-                    res.status(200).json({
-                        userId: user._id,
-                        token: jsonwebtoken.sign(
-                            //user id :
-                            {userId: user._id},
-                            //la clé de chiffrement du token
-                            `${process.env.JWT_KEY_TOKEN}`,
-                            //le temps de validité du token
-                            {expiresIn:'24h'}
-                        )
-                    })
-                }
-                
+                    const token = jsonwebtoken.sign(
+                        //user id /admin :
+                        {userId: user._id,
+                        admin: user.admin},
+                        //la clé de chiffrement du token
+                        `${process.env.JWT_KEY_TOKEN}`,
+                        //le temps de validité du token
+                        {expiresIn:'24h'}
+                    )
+                    res.header('Authorization', 'Bearer ' + token);
+                    return res.json({token, userId: user._id, admin : user.admin});
+                };      
             })
             .catch(error => res.status(500).json({error}));
         })

@@ -6,21 +6,21 @@ const fs = require('fs');
 
 
 
+
 //Logique POST :
 exports.createOnePost = (req, res, next) => {
-
-  const postObject = JSON.parse(req.body.post)
-
+    
+  const postObject = JSON.parse(req.body.post);
   
   const post = new Post({
     ...postObject,
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
   });
-
+    
   //enregistrer l'objet dans la base de donné en appelant la méthode save :
   post.save()
-      .then(() => { res.status(201).json({message: 'Objet enregistré !'})})
-      .catch(error => { res.status(400).json( { error })});
+    .then(() => { res.status(201).json({message: 'Objet enregistré !'})})
+    .catch(error => { res.status(400).json( { error })});
 }
 
 
@@ -65,6 +65,10 @@ exports.modifyOnePost = (req, res, next) => {
 
 
 
+
+
+
+
 //Logique DELETE :
 
 exports.deleteOnePost = (req, res, next) => {
@@ -86,14 +90,19 @@ exports.deleteOnePost = (req, res, next) => {
 
 
 
+
+
 //Logique GET avec Find :
 
 exports.getAllPost = (req, res, next) => {
   //utilisation de la méthode find() pour avoir la liste complète :
-    Post.find()
-      .then(posts => res.status(200).json(posts))
-      .catch(error => res.status(400).json({error}));
+  Post.find().sort({date: -1})
+    .then(posts => res.status(200).json(posts))
+    .catch(error => res.status(400).json({error}));
 }
+
+
+
 
 
 
@@ -102,7 +111,7 @@ exports.getAllPost = (req, res, next) => {
 exports.getOnePost =  (req, res, next) => {
   //pour accéder à l'id, req.params.id :
   
-    Post.findOne({_id: req.params.id})
-      .then(post => res.status(200).json(post))
-      .catch((error) => res.status(400).json({error}));
+  Post.findOne({_id: req.params.id})
+    .then(post => res.status(200).json(post))
+    .catch((error) => res.status(400).json({error}));
 }
