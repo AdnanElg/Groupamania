@@ -13,7 +13,6 @@ module.exports = (req, res, next) => {
       const userId = decodedToken.userId;
       const admin = decodedToken.admin;
 
-
       if (req.body.userId && req.body.userId !== userId && !admin) {
          throw "erreur identification userId"
       }

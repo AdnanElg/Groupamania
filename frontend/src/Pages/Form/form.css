@@ -1,0 +1,104 @@
+/* form style */
+
+.form{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  margin-top: 3rem;
+  gap: 3rem;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 15px;
+}
+
+
+.form-group input {
+  margin-bottom: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.container-img{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+
+.form-click{
+  margin-bottom: 25px;
+}
+
+
+#root > form > div:nth-child(1) > span.form-click > i{
+  margin-right: 10px;
+}
+
+
+.form-recomendation{
+  color: #4E5166;
+}
+
+
+label{
+  font-size: 1rem;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 25px;
+  font-size: 17px;
+}
+
+
+.form-control{
+  height: 2rem;
+  font-size: large;
+  border-radius: 0.2rem;
+  border: solid 1px #bbb;
+  font-size: 1rem;
+  color: #646464;
+}
+
+
+.textarea{
+  height: 10rem;
+  font-size: 1.2rem;
+}
+
+
+
+.btn-create{
+  background: #4E5166;;
+  color: #fff;
+  padding:0.7rem;
+  border-radius: 0.3rem;
+  border: none;
+  width: 150px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+.btn-danger{
+  background: #FD2D01;
+  color: #fff;
+  padding:0.7rem;
+  border-radius: 0.3rem;
+  border: none;
+  width: 150px;
+  margin-left: 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 700px){
+  .mobile-btn{
+    display: flex;
+    justify-content: center;
+  }
+}

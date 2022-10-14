@@ -1,0 +1,137 @@
+/*Navbar styles*/
+
+nav{
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+.liste{
+    list-style-type: none;
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 3rem;
+    padding-top: 35px;
+    align-items: center;
+    position: relative;
+    gap: 3rem;
+}
+
+
+.liste img{
+    width: 300px;
+    margin-left: 2rem;
+}
+
+
+#root > nav > div > div{
+    margin-left: 3rem;
+}
+
+
+.items{
+    margin-right: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.items:hover{
+    border-bottom:solid 2px;
+    transition: ease-in 1s;
+}
+
+
+#root > nav > div > div > a:nth-child(1){
+    color: #4E5166;
+    text-decoration: none;
+}
+
+
+#root > nav > div > div > button:nth-child(2){
+    color: #FD2D01;
+    text-decoration: none;
+    border: none;
+    background-color: #fff;
+}
+
+
+.btn{
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    padding: 5px 10px;
+    color: black;
+    font-size: 18px;
+}
+
+
+
+@media screen and (max-width: 900px){
+    
+    .liste{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+    }
+
+    .items{
+        height: 50px;
+        width: 60%;
+        line-height: 0px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .liste img{
+        margin-left: 0px;
+        margin-top: 30px;
+    }    
+
+    .btn{
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 434px){
+    
+    #root > nav > div > div{
+        margin-left: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 418px){
+    
+    #root > nav > div > div{
+        margin-left: 20px;
+    }
+}
+
+
+@media screen and (max-width: 413px){
+    .items{
+        font-size: 19px;
+        margin-right: 16px;
+    }
+}
+
+
+@media screen and (max-width: 374px){
+    .items{
+        font-size: 15px;
+        margin-right: 16px;
+    }
+
+    
+    .liste img{
+        width: 200px;
+        margin-left: 0rem;
+    }
+}
