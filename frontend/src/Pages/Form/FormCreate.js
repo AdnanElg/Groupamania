@@ -1,10 +1,10 @@
 import {useState} from 'react';
 import { useNavigate} from "react-router-dom";
-import './form.css';
+import './formCreate.css';
 import Navbar from '../../Components/Navbar';
 
 
-export default function Form() {
+export default function FormCreate() {
   const token = localStorage.getItem("TOKEN");    
   const userId = localStorage.getItem("userId");
    
@@ -25,23 +25,18 @@ export default function Form() {
   const handleSubmitPost = e => {
     e.preventDefault();
 
-    const tmp_date = new Date().toISOString().split('T');
-    const date = `${tmp_date[0]}  ${tmp_date[1]}` 
 
-    // const post = {userId, imageUrl, message, date}
-    
     const post = new FormData();
     post.append('userId' , userId);
     post.append('image' , imageUrl);
     post.append('message' , message);
-    post.append('date', date);
-   
 
+   
    
     fetch("http://localhost:3000/api/posts", 
         {
           method: 'POST',
-          body: JSON.stringify(post),
+          body: post,
           headers: {
             'Authorization': "Bearer " + token,
           },
@@ -96,7 +91,6 @@ export default function Form() {
             <div className="form-group">
               <div className='mobile-btn'>
                 <button type="submit" className="btn-create">Creer Poste</button>
-                <button type="submit" className="btn-danger">Modifier</button>
               </div>
             </div>
         </form>

@@ -9,7 +9,7 @@ const fs = require('fs');
 //Logique POST :
 exports.createOnePost = (req, res, next) => {
   
-  const postObject = JSON.parse(req.body.post);
+  const postObject = req.body;
   
   const post = new Post({
     ...postObject,
@@ -19,8 +19,7 @@ exports.createOnePost = (req, res, next) => {
 
   //enregistrer l'objet dans la base de donné en appelant la méthode save :
   post.save()
-    console.log(post)
-    .then((res) => { res.status(201).json({message: 'Objet enregistré !'})})
+    .then(post => { res.status(201).json({message: 'Objet enregistré !'})})
     .catch(error => { res.status(400).json( { error })});
 }
 
@@ -52,7 +51,7 @@ exports.modifyOnePost = (req, res, next) => {
   const postObject = req.file ?
 
   {
-    ...JSON.parse(req.body.post),
+    ...req.body,
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
   } :
   { ...req.body};
