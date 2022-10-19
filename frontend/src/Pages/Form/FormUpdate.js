@@ -17,7 +17,7 @@ export default function FormUpdate() {
  const navigate = useNavigate();
 
   
-
+    //recuperation des donée du poste de saisie : 
     useEffect(() => {
         fetch(`http://localhost:3000/api/posts/${postData.id}`,{
             method: 'GET',
@@ -39,13 +39,13 @@ export default function FormUpdate() {
         .catch(error => {
           console.log(error);
         })
-      
+    // eslint-disable-next-line       
     },[]);
 
 
 
 
-
+    //uploade image : 
     const handleImage = (e) => {
         const [file] = e.target.files;
         setPreview(URL.createObjectURL(file));
@@ -54,10 +54,11 @@ export default function FormUpdate() {
 
 
 
-
+    // function de modification des données :
     const handleSubmitPut = (e) => {
         e.preventDefault();
       
+        //recuperation des value : 
         const post = new FormData();
         post.append('userId', userId);
         post.append('image', imageUrl);
@@ -65,7 +66,7 @@ export default function FormUpdate() {
         
 
 
-
+        //modification des value avec le meme userId :
         fetch( `http://localhost:3000/api/posts/${postData.id}`, {
           method: 'PUT',
           body: post, userId,
@@ -92,7 +93,7 @@ export default function FormUpdate() {
     
     
 
-
+ //FormModify : 
  return (
     <>
     <Navbar/>

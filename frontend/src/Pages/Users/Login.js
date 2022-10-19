@@ -15,11 +15,11 @@ export default function Login() {
     const [openSnackBar, setOpenSnackBar] = useState(false);
     const navigate = useNavigate();
 
-
+    //envoie du formulaire login :
     const handleSubmit = (e) => {
       e.preventDefault();
       
-      
+      // controle des regexp des formulaire email et password :
       const regExEmail = (value) => {
         return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
       }
@@ -38,6 +38,7 @@ export default function Login() {
       } 
 
 
+      //envoie des donée du formulaire vers le back pour la conexion :
       fetch('http://localhost:3000/api/auth/login', 
 
       {
@@ -79,7 +80,7 @@ export default function Login() {
     };
 
 
-    
+    //alerte en cas d'erreur sur la validiter du mots de passe ou email :
     function handleSnackBar(){
       return(
           <Snackbar open={openSnackBar} autoHideDuration={3000} onClose={() => setOpenSnackBar(false)}>
@@ -89,6 +90,8 @@ export default function Login() {
     }
 
 
+
+    //Login :
     return (
       <>
         <div className='login-img'>

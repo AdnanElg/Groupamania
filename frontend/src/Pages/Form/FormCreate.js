@@ -15,6 +15,7 @@ export default function FormCreate() {
   const navigate = useNavigate();
 
 
+  //function uploade image : 
   const handleImage = (e) => {
     const [file] = e.target.files;
     setPreview(URL.createObjectURL(file));
@@ -22,6 +23,7 @@ export default function FormCreate() {
   }
 
 
+  //function d'envoie pour la creation d'un nouveaux poste :
   const handleSubmitPost = e => {
     e.preventDefault();
 
@@ -32,7 +34,7 @@ export default function FormCreate() {
     post.append('message' , message);
 
    
-   
+    //Envoie des donées aux back, puis récuperation de la reponce pour la creation d 'un nouveaux poste :
     fetch("http://localhost:3000/api/posts", 
         {
           method: 'POST',
@@ -55,7 +57,7 @@ export default function FormCreate() {
       }
 
       
-
+    //FormCreate : 
     return (
       <>
         <Navbar/>

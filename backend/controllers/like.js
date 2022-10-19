@@ -8,7 +8,7 @@ exports.likePost = (req, res, next) => {
   Post.findOne({_id: req.params.id})
   .then((post) => {      
 
-    if(!post.usersLiked.includes(req.body.userId) && req.body.like === 1){
+    if(!post.usersLiked.includes(req.params.userId)){
 
     //Mettre à jour la Base de donée MongoDB :
       Post.updateOne(
@@ -16,7 +16,7 @@ exports.likePost = (req, res, next) => {
         {
           $inc: {likes: 1},
 
-          $push: {usersLiked: req.body.userId}
+          $push: {usersLiked: req.params.userId}
         }
       )
       .then(() => res.status(200).json({message : "Post like +1"}))
@@ -24,7 +24,7 @@ exports.likePost = (req, res, next) => {
     }
 
 
-    else if (post.usersLiked.includes(req.body.userId) && req.body.like === 0){
+    else {
     
     //Mettre à jour la Base de donée MongoDB :
       Post.updateOne(
@@ -32,7 +32,7 @@ exports.likePost = (req, res, next) => {
         {
           $inc: {likes: -1},
 
-          $pull: {usersLiked: req.body.userId}
+          $pull: {usersLiked: req.params.userId}
         }
       )
       .then(() => res.status(200).json({message : "Post like 0"}))

@@ -5,9 +5,10 @@ import CardLists from '../../Components/CardLists';
 
 export default function Home() {
 
+  //recuperation des postes dans la page home , antéchronologique (du plus récent au plus ancien): 
   const {postList, error, loading} = UseFetchGet('http://localhost:3000/api/posts?_sort=id&_order=desc');
-
-
+  
+  
   return (
     <>
       <Navbar/>

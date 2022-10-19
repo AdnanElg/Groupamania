@@ -11,10 +11,13 @@ export default function Navbar() {
   const navigate = useNavigate()
 
 
+  //toggle navbar : 
   const handleToggleNav = () => {
     setToggleMenu(!toggleMenu)
   }
 
+
+  //useEffect navbar :
   useEffect(() => {
 
     const changeWidth = () => {
@@ -30,12 +33,16 @@ export default function Navbar() {
   }, [])
 
 
+
+  //function deconecion logout :
   const handleLogOut = () => {
     localStorage.clear();
     navigate('/api/auth/login')
   }
 
 
+
+  //Navbar + logo :
   return (
     <nav>
       {(toggleMenu  || largeur > 900) && ( 

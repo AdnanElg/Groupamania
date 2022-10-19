@@ -14,10 +14,11 @@ export default function Register() {
     const [openSnackBar, setOpenSnackBar] = useState(false);
     const navigate = useNavigate();
 
-
+   //envoie du formulaire register :
     const handleSubmit = (e) => {
       e.preventDefault();
 
+      // controle des regexp des formulaire email et password :
       const regExEmail = (value) => {
         return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value);
       }
@@ -34,7 +35,7 @@ export default function Register() {
         return setOpenSnackBar(true);
       } 
 
-      
+       //envoie des donée du formulaire vers le back pour l'inscription :
       fetch('http://localhost:3000/api/auth/signup', 
 
       {
@@ -73,7 +74,7 @@ export default function Register() {
     };
 
 
-
+     //alerte en cas d'erreur sur la validiter du mots de passe ou email ou en cas de compte deja crée :
     function handleSnackBar(){
       return(
           <Snackbar open={openSnackBar} autoHideDuration={3000} onClose={() => setOpenSnackBar(false)}>
@@ -83,7 +84,7 @@ export default function Register() {
     }
     
     
-
+    //Register :
     return (
       <>
         <div className='register-img'>

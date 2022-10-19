@@ -4,11 +4,12 @@ import './noFound.css';
 
 export default function NoFound() {
   
+  //function de deconexion logout : 
   const handleLogOut = () => {
     localStorage.clear();
   }
 
-
+  //NoFoud erreur 404 :
   return (
     <>
       <div className="error-page-wrap">

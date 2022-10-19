@@ -37,7 +37,7 @@ router.get('/:id', auth, postControllers.getOnePost);
 
 
 //Route POST :
-router.post("/:id/like" , auth, likeControllers.likePost);
+router.post("/:id/:userId/like" , auth, likeControllers.likePost);
 
 
 
