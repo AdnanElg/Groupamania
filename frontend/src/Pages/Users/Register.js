@@ -78,7 +78,7 @@ export default function Register() {
     function handleSnackBar(){
       return(
           <Snackbar open={openSnackBar} autoHideDuration={3000} onClose={() => setOpenSnackBar(false)}>
-              <Alert severity= "error">Veuillez vérifier votre email ou votre mot de passe.</Alert>
+              <Alert severity= "error">Veuillez vérifier votre email ou votre mot de passe (1 majuscule, 1 minuscule, 2 chiffres, 6 caractéres min à 100 max).</Alert>
           </Snackbar>
       )
     }
@@ -88,7 +88,7 @@ export default function Register() {
     return (
       <>
         <div className='register-img'>
-            <img src={logo} alt=""/>
+            <img src={logo} alt="logo-groupamania"/>
         </div>
 
         <div className="register-form">

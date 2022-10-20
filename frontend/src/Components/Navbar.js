@@ -48,7 +48,7 @@ export default function Navbar() {
       {(toggleMenu  || largeur > 900) && ( 
       
         <div className='liste'>
-          <Link to='/api/posts'><img src={logo} alt="" /></Link>
+          <Link to='/api/posts'><img src={logo} alt="logo-groupamania" /></Link>
           <div className='containers-items'>
             <Link to='/api/posts/newPost'><span className='items'>Ajouter un post</span></Link>
             <button onClick={handleLogOut}><span className='items'>Se déconnecter</span></button>

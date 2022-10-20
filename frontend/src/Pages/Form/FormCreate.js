@@ -67,7 +67,7 @@ export default function FormCreate() {
                 <u>Image :</u>
               </label>
               <div className='container-img'>   
-                <img src={preview} alt=''/>
+                <img src={preview} alt='image-update'/>
               </div>
               <span className='form-click'>
                 <i className="fas fa-solid fa-download"></i>

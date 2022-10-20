@@ -84,7 +84,7 @@ const CardLists = ({postList}) => {
             return (
               <div key={post._id} className='gm-postcard'>
                 <div className='gm-mq-postcard'>
-                    <img src={post.imageUrl} alt="" className='gm-postcard-img'></img>
+                    <img src={post.imageUrl} alt="card-image" className='gm-postcard-img'></img>
                     <p className='gm-postcard-like' onClick={() => {handleLike(post._id)}}><i className="fas fa-duotone fa-thumbs-up"></i> : {post.likes}</p>
                 </div>
                 <div className='gm-postcard-content'>    
