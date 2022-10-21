@@ -7,8 +7,8 @@ import Navbar from '../../Components/Navbar';
 export default function FormCreate() {
   const token = localStorage.getItem("TOKEN");    
   const userId = localStorage.getItem("userId");
-   
   
+
   const [imageUrl, setImageUrl] = useState('');
   const [message, setMessage] = useState('');
   const [preview, setPreview] = useState('');

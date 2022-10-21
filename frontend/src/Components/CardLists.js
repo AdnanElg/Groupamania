@@ -10,6 +10,7 @@ const CardLists = ({postList}) => {
   const userId = localStorage.getItem("userId");
   const admin = localStorage.getItem("admin");
 
+  
   const navigate = useNavigate();
 
 
@@ -96,8 +97,9 @@ const CardLists = ({postList}) => {
                           </>
                         )}
                     </div>
-                    <p className='gm-postcard-text'>{post.message}</p>
-                    <p className='gm-postcard-date'><strong> Publié le : {dateFormat(post.date)}</strong></p>
+                      <p className='utilisateur-card'><strong>Utilisateur : {post.userId}</strong></p>
+                      <p className='gm-postcard-text'>{post.message}</p>
+                      <p className='gm-postcard-date'><strong> Publié le : {dateFormat(post.date)}</strong></p>
                 </div>
               </div>
             )
